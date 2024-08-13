@@ -7,7 +7,7 @@ RSpec.describe 'subscriptions' do
       tea = Tea.create!(title: 'Green Tea', description: 'Green Tea is a type of tea that is green.', temperature: 180, brew_time: 3, price: 5)
       subscription_params = {customer_id: customer.id, tea_id: tea.id}
 
-      post "/api/v1/users/#{customer.id}/subscriptions", params: {tea_id: tea.id}
+      post "/api/v1/users/#{customer.id}/subscriptions", params: {subscription: subscription_params}
 
       expect(response).to be_successful
       expect(response.status).to eq(201)
