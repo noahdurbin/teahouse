@@ -32,7 +32,6 @@
           2,
           2,
           2,
-          2,
           null,
           null,
           1,
@@ -62,6 +61,7 @@
           2,
           2,
           2,
+          2,
           null,
           null,
           1,
@@ -78,13 +78,47 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           1,
           null
         ]
+      },
+      "/Users/noahdurbin/Documents/turing/mod4/teahouse/spec/requests/api/v1/subscriptions_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1723570837
+    "timestamp": 1723581280
   }
 }

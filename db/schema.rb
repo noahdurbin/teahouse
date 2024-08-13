@@ -27,7 +27,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_173542) do
     t.bigint "tea_id", null: false
     t.bigint "customer_id", null: false
     t.string "status"
-    t.string "price"
     t.string "frequency"
     t.string "title"
     t.datetime "created_at", null: false
@@ -41,6 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_173542) do
     t.string "description"
     t.string "temperature"
     t.string "brew_time"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
