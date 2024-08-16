@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :customers, only: [:show] do
-        post '/subscriptions', to: 'subscriptions#create'
-        delete '/subscriptions/:id', to: 'subscriptions#destroy'
+        resources :subscriptions, only: %i[index create destroy]
       end
     end
   end

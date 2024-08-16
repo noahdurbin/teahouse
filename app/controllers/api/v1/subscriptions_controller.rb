@@ -10,6 +10,12 @@ class Api::V1::SubscriptionsController < ApplicationController
     end
   end
 
+  def index
+    customer = Customer.find_by(id: params[:customer_id])
+    subscriptions = customer.subscriptions
+    render json: SubscriptionsSerializer.new.serialize(subscriptions), status: :ok
+  end
+
   def destroy
     subscription = Subscription.find_by(id: params[:id])
     subscription.status = 'cancelled'
