@@ -44,4 +44,23 @@ RSpec.describe 'subscriptions' do
       expect(error[:errors].first).to eq('Tea must exist')
     end
   end
+
+  describe 'cancel a subscription' do
+    before :each do
+      @customer = Customer.create!(first_name: 'John', last_name: 'Doe', email: 'johndoe@mail.com', address: 'home')
+      @tea = Tea.create!(title: 'Green Tea', description: 'Green Tea is a type of tea that is green.', temperature: 180,
+                         brew_time: 3, price: 5)
+
+      @subscription = Subscription.create!(customer_id: @customer.id, tea_id: @tea.id)
+    end
+
+    it 'can request to cancel a subscription' do
+      delete "/api/v1/customers/#{@customer.id}/subscriptions/#{@subscription.id}"
+
+      expect(response).to be_successful
+      expect(response.status).to eq(204)
+      expect(Subscription.find_by(id: @subscription.id)).to eq(nil)
+      expect(response.body).to eq('')
+    end
+  end
 end
