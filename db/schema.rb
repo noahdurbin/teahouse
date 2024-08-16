@@ -26,9 +26,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_173542) do
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "tea_id", null: false
     t.bigint "customer_id", null: false
-    t.string "status"
-    t.string "frequency"
+    t.integer "status", default: 0
+    t.integer "frequency", default: 2
     t.string "title"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_subscriptions_on_customer_id"

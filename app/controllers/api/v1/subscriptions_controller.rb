@@ -1,8 +1,10 @@
-class SubscriptionsController < ApplicationController
+class Api::V1::SubscriptionsController < ApplicationController
   def create
-    @subscription = Subscription.new(subscription_params)
+    @subscription = Subscription.create(customer_id: subscription_params[:customer_id],
+                                        tea_id: subscription_params[:tea_id])
+
     if @subscription.save
-      render json: @subscription, status: :created
+      render json: SubscriptionSerializer.new(@subscription), status: :created
     else
       render json: { errors: @subscription.errors.full_messages }, status: :unprocessable_entity
     end
@@ -11,6 +13,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:title, :status, :frequency, :customer_id, :tea_id)
+    params.require(:subscription).permit(:customer_id, :tea_id)
   end
 end
