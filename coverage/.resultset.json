@@ -32,7 +32,6 @@
           2,
           2,
           2,
-          2,
           null,
           null,
           1,
@@ -46,9 +45,33 @@
         "lines": [
           1,
           1,
+          null,
+          1,
           1,
           null,
           1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          9,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          9,
+          null,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -58,6 +81,7 @@
           null,
           1,
           1,
+          2,
           2,
           2,
           2,
@@ -78,13 +102,101 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           1,
           null
         ]
+      },
+      "/Users/noahdurbin/Documents/turing/mod4/teahouse/spec/requests/api/v1/subscriptions_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/noahdurbin/Documents/turing/mod4/teahouse/app/controllers/api/v1/subscriptions_controller.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null,
+          2,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
+      "/Users/noahdurbin/Documents/turing/mod4/teahouse/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/noahdurbin/Documents/turing/mod4/teahouse/app/serializers/subscription_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1723570837
+    "timestamp": 1723846529
   }
 }
