@@ -29,5 +29,19 @@ RSpec.describe 'subscriptions' do
       # subscription price is the tea price by default
       expect(sub[:data][:attributes][:price]).to eq(5)
     end
+
+    it 'fails gracefully if customer_id is missing' do
+      customer = Customer.create!(first_name: 'John', last_name: 'Doe', email: 'email@email.com', address: 'home')
+
+      subscription_params = { customer_id: customer.id, tea_id: nil }
+
+      post "/api/v1/customers/#{customer.id}/subscriptions", params: { subscription: subscription_params }
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(422)
+
+      error = JSON.parse(response.body, symbolize_names: true)
+      expect(error[:errors].first).to eq('Tea must exist')
+    end
   end
 end
