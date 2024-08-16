@@ -12,9 +12,9 @@ class Api::V1::SubscriptionsController < ApplicationController
 
   def destroy
     subscription = Subscription.find_by(id: params[:id])
-    subscription.destroy
+    subscription.status = 'cancelled'
 
-    render status: :no_content
+    render json: SubscriptionSerializer.new(subscription), status: :accepted
   end
 
   private
