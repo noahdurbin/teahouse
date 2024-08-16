@@ -10,6 +10,13 @@ class Api::V1::SubscriptionsController < ApplicationController
     end
   end
 
+  def destroy
+    subscription = Subscription.find_by(id: params[:id])
+    subscription.destroy
+
+    render status: :no_content
+  end
+
   private
 
   def subscription_params
