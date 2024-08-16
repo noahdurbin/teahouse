@@ -58,9 +58,28 @@ RSpec.describe 'subscriptions' do
       delete "/api/v1/customers/#{@customer.id}/subscriptions/#{@subscription.id}"
 
       expect(response).to be_successful
-      expect(response.status).to eq(204)
-      expect(Subscription.find_by(id: @subscription.id)).to eq(nil)
-      expect(response.body).to eq('')
+      expect(response.status).to eq(202)
+      sub = JSON.parse(response.body, symbolize_names: true)
+
+      expect(sub[:data][:attributes][:status]).to eq('cancelled')
+    end
+  end
+
+  describe 'subscription index' do
+    it 'can get all of a customers subscriptions' do
+      customer = Customer.create!(first_name: 'John', last_name: 'Doe', email: 'johndoe@mail.com', address: 'home')
+      customer2 = Customer.create!(first_name: 'Jane', last_name: 'Doe', email: 'janedoe@mail.com', address: 'home')
+      tea = Tea.create!(title: 'Green Tea', description: 'Green Tea is a type of tea that is green.', temperature: 180,
+                        brew_time: 3, price: 5)
+
+      subscription = Subscription.create!(customer_id: customer.id, tea_id: tea.id)
+      subscription2 = Subscription.create!(customer_id: customer2.id, tea_id: tea.id)
+      get "/api/v1/customers/#{customer.id}/subscriptions"
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+      subs = JSON.parse(response.body, symbolize_names: true)
+      expect(subs[:data].count).to eq(1)
     end
   end
 end
